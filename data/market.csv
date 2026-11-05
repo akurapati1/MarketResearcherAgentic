@@ -1,0 +1,21 @@
+company,year,revenue_musd,segment
+VoltGrid,2021,120,DC fast
+VoltGrid,2022,180,DC fast
+VoltGrid,2023,270,DC fast
+VoltGrid,2024,380,DC fast
+VoltGrid,2025,520,DC fast
+ChargeNest,2021,200,Home & workplace
+ChargeNest,2022,240,Home & workplace
+ChargeNest,2023,275,Home & workplace
+ChargeNest,2024,300,Home & workplace
+ChargeNest,2025,320,Home & workplace
+PlugLoop,2021,90,Fleet
+PlugLoop,2022,95,Fleet
+PlugLoop,2023,100,Fleet
+PlugLoop,2024,96,Fleet
+PlugLoop,2025,90,Fleet
+AmpWorks,2021,60,DC fast
+AmpWorks,2022,110,DC fast
+AmpWorks,2023,170,DC fast
+AmpWorks,2024,230,DC fast
+AmpWorks,2025,310,DC fast
