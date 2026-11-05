@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: market, POSTGRES_PASSWORD: market, POSTGRES_DB: market }
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U market"], interval: 5s, retries: 10 }
+  app:
+    build: .
+    depends_on: { db: { condition: service_healthy } }
+    environment:
+      DATABASE_URL: postgresql+asyncpg://market:market@db:5432/market
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      MAX_CONCURRENT_JOBS: 4
+    ports: ["8000:8000"]
+    # Scale horizontally: `docker compose up --scale app=3` (behind a load balancer);
+    # workers claim jobs atomically from the shared DB and SSE reads events from it.
+volumes:
+  pgdata:
